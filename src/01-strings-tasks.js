@@ -213,12 +213,12 @@ function extractEmails(recivedString) {
  *
  */
 function getRectangleString(width, height) {
-  // throw new Error('Not implemented');
-  const topLine = 1;
-  const bottomlineLine = width;
+  throw new Error('Not implemented');
+  // const topLine = 1;
+  // const bottomlineLine = width;
 
-  const leftLine = 1;
-  const rightLine = height;
+  // const leftLine = 1;
+  // const rightLine = height;
   // [
   // '-', '
   // ]
