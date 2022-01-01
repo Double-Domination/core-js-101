@@ -148,8 +148,10 @@ function removeFirstOccurrences(initialStr, strToRemove) {
  *   '<span>' => 'span'
  *   '<a>' => 'a'
  */
-function unbracketTag(/* str */) {
-  throw new Error('Not implemented');
+function unbracketTag(recivedString) {
+  // throw new Error('Not implemented');
+  const regexp = new RegExp(/([<>])/, 'g');
+  return recivedString.replace(regexp, '');
 }
 
 /**
@@ -162,8 +164,9 @@ function unbracketTag(/* str */) {
  *   'Thunderstruck' => 'THUNDERSTRUCK'
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
-function convertToUpperCase(/* str */) {
-  throw new Error('Not implemented');
+function convertToUpperCase(recivedString) {
+  // throw new Error('Not implemented');
+  return recivedString.toUpperCase();
 }
 
 /**
@@ -181,8 +184,9 @@ function convertToUpperCase(/* str */) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(recivedString) {
+  // throw new Error('Not implemented');
+  return recivedString.split(';');
 }
 
 /**
@@ -208,8 +212,16 @@ function extractEmails(/* str */) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  // throw new Error('Not implemented');
+  const topLine = 1;
+  const bottomlineLine = width;
+
+  const leftLine = 1;
+  const rightLine = height;
+  // [
+  // '-', '
+  // ]
 }
 
 /**
