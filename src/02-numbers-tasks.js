@@ -7,7 +7,6 @@
  *                                                                                           *
  ******************************************************************************************* */
 
-
 /**
  * Returns an area of a rectangle given by width and height.
  *
@@ -19,10 +18,10 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(w, h) {
+  // throw new Error('Not implemented');
+  return w * h;
 }
-
 
 /**
  * Returns a circumference of circle given by radius.
@@ -35,8 +34,9 @@ function getRectangleArea(/* width, height */) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(radius) {
+  // throw new Error('Not implemented');
+  return 2 * Math.PI * radius;
 }
 
 /**
@@ -51,8 +51,11 @@ function getCircleCircumference(/* radius */) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
+function getAverage() {
   throw new Error('Not implemented');
+  // const first = Number.prototype.toPrecision(value1);
+  // const second = Number.prototype.toPrecision(value2);
+  // return (first + second) / 2;
 }
 
 /**
@@ -90,7 +93,6 @@ function getLinearEquationRoot(/* a, b */) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi,
  * coordinates in Cartesian plane.
@@ -125,10 +127,10 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(str) {
+  // throw new Error('Not implemented');
+  return Number(String(str).slice(-1));
 }
-
 
 /**
  * Returns a number by given string representation.
@@ -141,8 +143,9 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(str) {
+  // throw new Error('Not implemented');
+  return Number(str);
 }
 
 /**
@@ -161,7 +164,6 @@ function parseNumberFromString(/* value */) {
 function getParallelepipedDiagonal(/* a, b, c */) {
   throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the number rounded to specified power of 10.
