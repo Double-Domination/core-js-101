@@ -289,17 +289,10 @@ function getSecondItems(arr) {
  */
 function propagateItemsByPositionIndex(arr) {
   const tmp = arr.map((curItem, curIndex) => {
-    const result = [];
-    result.push(curItem);
-    // console.log(result)
-    let currentValueMultplexCount = curIndex;
+    const multeplexed = new Array(curIndex + 1);
+    multeplexed.fill(curItem);
 
-    while (currentValueMultplexCount !== 0) {
-      result.push(curItem);
-      currentValueMultplexCount -= 1;
-    }
-
-    return result;
+    return multeplexed;
   });
 
   return tmp.flat();
