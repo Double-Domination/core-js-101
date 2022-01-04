@@ -1,15 +1,9 @@
-// function getIdentityMatrix(n) {
-//   const preConstructedArr = new Array(n);
-//   preConstructedArr.fill(new Array(n));
-//   let resultingArr = preConstructedArr.map((current) => current.fill(0));
-//   resultingArr = JSON.parse(JSON.stringify(resultingArr));
+// const init = [1, 2, 3, 3, 2, 1];
 
-//   resultingArr = resultingArr.map((curItem, curIndex) => {
-//     curItem[curIndex] = 1;
-//     return curItem;
-//   });
+// function distinct(arr) {
+//   let result = new Set(arr);
 
-//   return resultingArr;
+//   return Array.from(result);
 // }
 
-// console.log(getIdentityMatrix(5));
+// console.log(distinct(init));
