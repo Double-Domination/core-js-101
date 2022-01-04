@@ -485,8 +485,19 @@ function sortCitiesArray(/* arr */) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  const preConstructedArr = new Array(n);
+  preConstructedArr.fill(new Array(n));
+  let resultingArr = preConstructedArr.map((current) => current.fill(0));
+  resultingArr = JSON.parse(JSON.stringify(resultingArr));
+
+  resultingArr = resultingArr.map((curItem, curIndex) => {
+    // eslint-disable-next-line no-param-reassign
+    curItem[curIndex] = 1;
+    return curItem;
+  });
+
+  return resultingArr;
 }
 
 /**
