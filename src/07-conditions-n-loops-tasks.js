@@ -192,8 +192,32 @@ function isInsideCircle(circle, point) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  const unic = [];
+  const duplicates = [];
+
+  const charIterator = str[Symbol.iterator]();
+  let curChar = charIterator.next();
+
+  // console.log(curChar);
+  while (curChar.done === false) {
+    // console.log(curChar.value);
+    const isUnic = unic.includes(curChar.value);
+    const isDuplicate = duplicates.includes(curChar.value);
+    if (isUnic === false && isDuplicate === false) {
+      // first descend of character
+      unic.push(curChar.value);
+    } else if (isUnic === true && isDuplicate === false) {
+      // duplicate found
+      duplicates.push(curChar.value);
+      unic.splice(unic.indexOf(curChar.value), 1);
+    } else if (isUnic === false && isDuplicate === true) {
+      // no actions
+    }
+    curChar = charIterator.next(); // get next character
+  }
+
+  return unic[0];
 }
 
 /**
