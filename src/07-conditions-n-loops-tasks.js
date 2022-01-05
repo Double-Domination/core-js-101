@@ -171,9 +171,15 @@ function doRectanglesOverlap(first, second) {
  *   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
  *
  */
-function isInsideCircle(/* circle, point */) {
-  throw new Error('Not implemented');
+function isInsideCircle(circle, point) {
+  const x = point.x - circle.center.x;
+  const y = point.y - circle.center.y;
+  if (x ** 2 + y ** 2 < circle.radius ** 2) {
+    return true;
+  }
+  return false;
 }
+
 
 /**
  * Returns the first non repeated char in the specified strings otherwise returns null.
