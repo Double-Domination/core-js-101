@@ -570,8 +570,19 @@ function distinct(arr) {
  *    "Poland" => ["Lodz"]
  *   }
  */
-function group(/* array, keySelector, valueSelector */) {
-  throw new Error('Not implemented');
+function group(initArr, keySelectorCallback, valueSelectorCallback) {
+  const result = new Map();
+
+  initArr.map((curItem, curIndex) => {
+    const identifer = keySelectorCallback(initArr[curIndex]);
+    if (result.has(identifer)) {
+      result.get(identifer).push(valueSelectorCallback(initArr[curIndex]));
+    } else {
+      result.set(identifer, [valueSelectorCallback(initArr[curIndex])]);
+    }
+    return curItem;
+  });
+  return result;
 }
 
 /**
