@@ -268,8 +268,34 @@ function getRectangleString(width, height) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+
+  const splitedStr = str.split('');
+  // array with inital alphabet
+  const encDict = [...lowercaseLetters];
+
+  // encoding
+
+  const getArrShiftPosition = (recivedChar) => {
+    const isUppercase = recivedChar.toUpperCase() === recivedChar;
+    // eslint-disable-next-line no-param-reassign
+    recivedChar = recivedChar.toLowerCase();
+    if (encDict.indexOf(recivedChar) === -1) {
+      return recivedChar;
+      // throw new Error(`Cant find character ${recivedChar}`);
+    }
+
+    const initalCharPos = encDict.indexOf(recivedChar);
+    const n = encDict.length;
+    const shiftedCharPos = encDict[(((initalCharPos + 13) % n) + n) % n];
+
+    return isUppercase ? shiftedCharPos.toUpperCase() : shiftedCharPos;
+  };
+
+  const result = splitedStr.map((x) => getArrShiftPosition(x));
+
+  return result.join('');
 }
 
 /**
