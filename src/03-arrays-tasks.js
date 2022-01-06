@@ -133,7 +133,6 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-  // throw new Error('Not implemented');
   return arr.map((x) => Number(x.length));
 }
 
@@ -151,7 +150,6 @@ function getStringsLength(arr) {
  *    [ 1, 'b', 'c'], 0, 'x'  => [ 'x', 1, 'b', 'c' ]
  */
 function insertItem(arr, item, index) {
-  // throw new Error('Not implemented');
   return arr.splice(index, 0, item);
 }
 
@@ -166,7 +164,6 @@ function insertItem(arr, item, index) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
 function getHead(arr, l) {
-  // throw new Error('Not implemented');
   return arr.slice(0, l);
 }
 
@@ -181,8 +178,6 @@ function getHead(arr, l) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
 function getTail(arr, n) {
-  // throw new Error('Not implemented');
-
   return arr.slice(-n);
 }
 
@@ -222,7 +217,6 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-  // throw new Error('Not implemented');
   return arr.map((x) => x * x);
 }
 
@@ -598,8 +592,9 @@ function group(initArr, keySelectorCallback, valueSelectorCallback) {
  *   [[1, 2], [3, 4], [5, 6]], (x) => x     =>   [ 1, 2, 3, 4, 5, 6 ]
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  const processed = arr.map((x) => childrenSelector(x));
+  return processed.flat();
 }
 
 /**
