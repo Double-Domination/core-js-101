@@ -212,18 +212,46 @@ function extractEmails(recivedString) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString() {
-  throw new Error('Not implemented');
-  // const topLine = 1;
-  // const bottomlineLine = width;
+function getRectangleString(width, height) {
+  let initContainer = new Array(height).fill(new Array(width).fill(' '));
+  // hard copy array to avoid licked data
+  initContainer = JSON.parse(JSON.stringify(initContainer));
 
-  // const leftLine = 1;
-  // const rightLine = height;
-  // [
-  // '-', '
-  // ]
+  initContainer = initContainer.map((curArrAsString, curIndex) => {
+    if (curIndex === 0) {
+      curArrAsString.fill('─');
+      // eslint-disable-next-line no-param-reassign
+      curArrAsString[0] = '┌';
+      // eslint-disable-next-line no-param-reassign
+      curArrAsString[width - 1] = '┐';
+    }
+
+    // rectangle body fill
+    if (curIndex !== 0 && curIndex !== height - 1) {
+      // eslint-disable-next-line no-param-reassign
+      curArrAsString[0] = '│';
+      // eslint-disable-next-line no-param-reassign
+      curArrAsString[width - 1] = '│';
+    }
+
+    // last line
+    if (curIndex === height - 1) {
+      curArrAsString.fill('─');
+      // eslint-disable-next-line no-param-reassign
+      curArrAsString[0] = '└';
+      // eslint-disable-next-line no-param-reassign
+      curArrAsString[width - 1] = '┘';
+    }
+    return curArrAsString;
+  });
+
+  return initContainer
+    .map((curent) => {
+      curent.push('\n');
+      return curent.join('');
+    })
+    .join('');
 }
-
 /**
  * Encode specified string with ROT13 cipher
  * See details:  https://en.wikipedia.org/wiki/ROT13
