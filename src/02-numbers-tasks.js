@@ -188,7 +188,7 @@ function roundToPowerOfTen(num, pow) {
   const parsedNum = parseFloat(splitedNum.join(''));
   const roundedNum = Math.round(parsedNum);
 
-  console.log(parsedNum);
+  // console.log(parsedNum);
   return Number(roundedNum + ''.padEnd(pow, 0));
 }
 
@@ -209,8 +209,13 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  return (
+    ![...Array(n).keys()]
+      .slice(2)
+      .map((i) => !(n % i))
+      .includes(true) && ![0, 1].includes(n)
+  );
 }
 
 /**
