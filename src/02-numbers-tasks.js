@@ -19,7 +19,6 @@
  *   5, 5  => 25
  */
 function getRectangleArea(w, h) {
-  // throw new Error('Not implemented');
   return w * h;
 }
 
@@ -35,7 +34,6 @@ function getRectangleArea(w, h) {
  *   0    => 0
  */
 function getCircleCircumference(radius) {
-  // throw new Error('Not implemented');
   return 2 * Math.PI * radius;
 }
 
@@ -51,11 +49,8 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage() {
-  throw new Error('Not implemented');
-  // const first = Number.prototype.toPrecision(value1);
-  // const second = Number.prototype.toPrecision(value2);
-  // return (first + second) / 2;
+function getAverage(a, b) {
+  return a / 2 + b / 2;
 }
 
 /**
