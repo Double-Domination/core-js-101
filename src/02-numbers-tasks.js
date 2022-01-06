@@ -177,8 +177,19 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  if (pow === 0) {
+    return num;
+  }
+
+  const splitedNum = String(num).split('');
+  splitedNum.splice(-pow, 0, '.');
+
+  const parsedNum = parseFloat(splitedNum.join(''));
+  const roundedNum = Math.round(parsedNum);
+
+  console.log(parsedNum);
+  return Number(roundedNum + ''.padEnd(pow, 0));
 }
 
 /**
