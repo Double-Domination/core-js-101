@@ -18,7 +18,6 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(recived1, recived2) {
-  // throw new Error('Not implemented');
   return (recived1 + recived2).trim();
 }
 
@@ -35,7 +34,6 @@ function concatenateStrings(recived1, recived2) {
  */
 function getStringLength(recivedStr) {
   return recivedStr.length;
-  // throw new Error('Not implemented');
 }
 
 /**
@@ -52,7 +50,6 @@ function getStringLength(recivedStr) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(recivedFirstname, recivedSurename) {
-  // throw new Error('Not implemented');
   return `Hello, ${recivedFirstname} ${recivedSurename}!`;
 }
 
@@ -67,7 +64,6 @@ function getStringFromTemplate(recivedFirstname, recivedSurename) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(recivedString) {
-  // throw new Error('Not implemented');
   return `${recivedString.split(' ')[1]} ${recivedString
     .split(' ')[2]
     .slice(0, -1)}`;
@@ -84,7 +80,6 @@ function extractNameFromTemplate(recivedString) {
  *   'cat'       => 'c'
  */
 function getFirstChar(recived) {
-  // throw new Error('Not implemented');
   return recived[0];
 }
 
@@ -100,7 +95,6 @@ function getFirstChar(recived) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(recived) {
-  // throw new Error('Not implemented');
   return recived.trim();
 }
 
@@ -116,7 +110,6 @@ function removeLeadingAndTrailingWhitespaces(recived) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(recivedString, count) {
-  // throw new Error('Not implemented');
   return recivedString.repeat(count);
 }
 
@@ -133,7 +126,6 @@ function repeatString(recivedString, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(initialStr, strToRemove) {
-  // throw new Error('Not implemented');
   return initialStr.replace(strToRemove, '');
 }
 
@@ -149,7 +141,6 @@ function removeFirstOccurrences(initialStr, strToRemove) {
  *   '<a>' => 'a'
  */
 function unbracketTag(recivedString) {
-  // throw new Error('Not implemented');
   const regexp = new RegExp(/([<>])/, 'g');
   return recivedString.replace(regexp, '');
 }
@@ -165,7 +156,6 @@ function unbracketTag(recivedString) {
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(recivedString) {
-  // throw new Error('Not implemented');
   return recivedString.toUpperCase();
 }
 
@@ -185,7 +175,6 @@ function convertToUpperCase(recivedString) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(recivedString) {
-  // throw new Error('Not implemented');
   return recivedString.split(';');
 }
 
@@ -316,8 +305,6 @@ function isString(recivedString) {
     return true;
   }
   return false;
-
-  // throw new Error('Not implemented');
 }
 
 /**
@@ -345,7 +332,6 @@ function isString(recivedString) {
  *   'K♠' => 51
  */
 function getCardId(recivedString) {
-  // throw new Error('Not implemented');
   const cardDeck = [
     'A♣',
     '2♣',

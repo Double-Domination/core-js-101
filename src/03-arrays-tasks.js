@@ -21,7 +21,6 @@
  */
 
 function findElement(arr, value) {
-  // throw new Error('Not implemented');
   return arr.indexOf(value);
 }
 
@@ -102,7 +101,6 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-  // throw new Error('Not implemented');
   return arr.filter((x) => x);
 }
 
@@ -118,7 +116,6 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-  // throw new Error('Not implemented');
   return arr.map((x) => x.toUpperCase());
 }
 
@@ -457,8 +454,16 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(/* arr */) {
-  throw new Error('Not implemented');
+function sortCitiesArray(arr) {
+  return arr.sort((a, b) => {
+    if (a.country < b.country || (a.country === b.country && a.city < b.city)) {
+      return -1;
+    }
+    if (a.country > b.country) {
+      return 1;
+    }
+    return 0;
+  });
 }
 
 /**
