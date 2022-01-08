@@ -301,8 +301,28 @@ function reverseInteger(num) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(/* ccn */) {
-  throw new Error('Not implemented');
+function isCreditCardNumber(ccn) {
+  let splitted = ccn
+    .toString()
+    .split('')
+    .map((x) => Number(x));
+
+  if (splitted.length % 2 === 0) {
+    splitted = splitted.map((cur, curIndex) => {
+      const multipled = curIndex % 2 === 0 ? cur * 2 : cur;
+      return multipled;
+    });
+  } else {
+    splitted = splitted.map((cur, curIndex) => {
+      const multipled = curIndex % 2 === 1 ? cur * 2 : cur;
+      return multipled;
+    });
+  }
+
+  splitted = splitted.map((cur) => (cur > 9 ? cur - 9 : cur));
+
+  const summary = splitted.reduce((acc, cur) => acc + cur, 0);
+  return summary % 10 === 0;
 }
 
 /**
@@ -319,8 +339,10 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
+function getDigitalRoot(num) {
   throw new Error('Not implemented');
+  // const reductor=(recived)=>
+  // const res = String(num).split
 }
 
 /**
@@ -344,10 +366,32 @@ function getDigitalRoot(/* num */) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
-}
+function isBracketsBalanced(str) {
+  const map = {
+    '{': '}',
+    '[': ']',
+    '<': '>',
+    '(': ')',
+  };
 
+  const opened = [];
+
+  str.split('').forEach((cur) => {
+    if (Object.keys(map).includes(cur)) {
+      opened.push(cur);
+    } else if (map[opened[opened.length - 1]] === cur) {
+      opened.pop(cur); // eject
+    } else {
+      opened.push(cur);
+    }
+  });
+
+  if (opened.length === 0) {
+    return true;
+  }
+
+  return false;
+}
 /**
  * Returns the string with n-ary (binary, ternary, etc, where n <= 10)
  * representation of specified number.
@@ -368,8 +412,8 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(number, radix) {
+  return number.toString(radix);
 }
 
 /**
@@ -384,8 +428,26 @@ function toNaryString(/* num, n */) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/verbalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(/* pathes */) {
-  throw new Error('Not implemented');
+function getCommonDirectoryPath(pathes) {
+  const spliter = (x, sep = '/') => x.map((cur) => cur.split(sep));
+
+  const elementAt = (cur) => (x) => x[cur];
+
+  const proc = (x) => x[0].map((cur, curI) => x.map(elementAt(curI)));
+
+  const isEqual = (arr) => arr.every((cur) => cur === arr[0]);
+
+  const separator = '/';
+
+  const matchingArr = proc(spliter(pathes)).filter((item) => isEqual(item));
+
+  if (matchingArr.length === 0) {
+    return '';
+  }
+
+  const result = matchingArr.map((cur) => cur[0]).join(separator);
+
+  return `${result}/`;
 }
 
 /**
@@ -406,9 +468,23 @@ function getCommonDirectoryPath(/* pathes */) {
  *                         [ 6 ]]
  *
  */
-function getMatrixProduct(/* m1, m2 */) {
-  throw new Error('Not implemented');
-}
+const getMatrixProduct = (m1, m2) => {
+  const res = [];
+  for (let i = 0; i < m1.length; i += 1) {
+    res[i] = [];
+
+    for (let ii = 0; ii < m2[0].length; ii += 1) {
+      let sum = 0;
+
+      for (let iii = 0; iii < m1[0].length; iii += 1) {
+        sum += m1[i][iii] * m2[iii][ii];
+      }
+      res[i][ii] = sum;
+    }
+  }
+
+  return res;
+};
 
 /**
  * Returns the evaluation of the specified tic-tac-toe position.
@@ -440,7 +516,7 @@ function getMatrixProduct(/* m1, m2 */) {
  *    [    ,   ,    ]]
  *
  */
-function evaluateTicTacToePosition(/* position */) {
+function evaluateTicTacToePosition() {
   throw new Error('Not implemented');
 }
 
