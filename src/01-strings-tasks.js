@@ -18,6 +18,7 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(recived1, recived2) {
+  //super awesome comment for testing purposes
   return (recived1 + recived2).trim();
 }
 
